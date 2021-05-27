@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
+
 
 
 import Card from "../componets/Card"
@@ -15,6 +17,16 @@ function Contacts() {
     }
     ]);
 
+    const headers = {
+        'Content-Type': 'application/json',
+        'x-auth-tocken': localStorage.getItem('token')
+    }
+
+    let cards = [];
+    
+    let history = useHistory();
+
+
     const fillForm = (e, field) => {
         let newForm = { ...form };
         newForm[field] = e.target.value;
@@ -26,10 +38,7 @@ function Contacts() {
         const url = 'http://localhost:8080/contacts/new';
         const options = {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-auth-tocken': localStorage.getItem('token')
-            },
+            headers,
             // mode: "no-cors",  /*  crached my app. Why?? Maybe becouse od post method */
             body: JSON.stringify(form)
         }
@@ -42,21 +51,30 @@ function Contacts() {
         const url = 'http://localhost:8080/contacts/all';
         const options = {
             mode: 'cors',
-            headers: {
-                
-                'x-auth-tocken': localStorage.getItem('token')
-            }
+            headers
         }
 
-        fetch(url, options).then(data => data.json().then(contacts => {
-            setContacts(contacts);
+        fetch(url, options).then(data => data.json().then(output => {
+            if (output.status == 'success') {
+                setContacts(output.data);
+            } else {
+                // alert('Failed. Check console')
+                console.log(output);
+            }            
         }));
     }, []);
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            history.push('/auth')
+        }
+    },);
 
     const deleteContactHandler = (id) => {
         const url = 'http://localhost:8080/contacts/delete/' + id;
         const options = {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers
         }
 
         fetch(url, options)
@@ -77,11 +95,15 @@ function Contacts() {
             .catch(err => { alert(err) });
     }
 
-    const cards = contacts.map(contact => <Card
-        key={contact['_id']}
-        contact={contact}
-        deleteContact={deleteContactHandler.bind(this, contact['_id'])}
-    />);
+
+    if (typeof (contacts) == 'object' && contacts.length > 0) {
+        cards = contacts.map(contact => <Card
+            key={contact['_id']}
+            contact={contact}
+            deleteContact={deleteContactHandler.bind(this, contact['_id'])}
+        />)
+    }
+
 
     /* console.log(cards, contacts) */
     return (

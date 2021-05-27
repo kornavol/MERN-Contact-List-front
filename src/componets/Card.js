@@ -35,7 +35,8 @@ const Card = ({contact, deleteContact}) => {
         const options = {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'x-auth-tocken': localStorage.getItem('token')
         },
         body: JSON.stringify(editedContact)
         }
