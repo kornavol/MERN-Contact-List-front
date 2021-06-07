@@ -1,8 +1,11 @@
 import './App.css';
 
-import Contacts from "./pages/Contact"
-import Auth from "./pages/Auth"
 import { Switch, Route } from 'react-router-dom';
+
+import Contacts from "./pages/Contact"
+import GetContacts from "./pages/ContactForm/GetContact"
+import Auth from "./pages/Auth"
+
 
 function App() {
   return (
@@ -13,6 +16,9 @@ function App() {
         </Route>
         <Route path="/contacts">
           <Contacts />
+        </Route>
+        <Route path="/get-contacts">
+          <GetContacts />
         </Route>
         <Route path="/">
           <Auth />

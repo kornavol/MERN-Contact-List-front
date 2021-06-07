@@ -77,10 +77,12 @@ function Contacts() {
             headers
         }
 
+        console.log(url);
+
         fetch(url, options)
             .then(response => response.json().then(output => {
                 if (output.status === 'success') {
-                    alert(output.message);
+                    // alert(output.message);
                     let newList = contacts.filter(contact => {
                         if (contact._id != output.data) {
                             return contact;

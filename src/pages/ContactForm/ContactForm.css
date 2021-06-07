@@ -1,0 +1,35 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 700px;
+  /* margin: auto; */
+}
+
+.contact-form > * {
+  margin: 10px;
+  height: 20px;
+}
+
+.contact-form > textarea {
+  height: 120px;
+}
+
+.contact-form > button {
+  height: 40px;
+  /* width: fit-content;
+    margin: 0 auto; */
+}
+
+#get-contact > h1 {
+  text-align: center;
+  width: 100%;
+}
+
+#get-contact {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
