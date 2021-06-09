@@ -35,7 +35,7 @@ function Contacts() {
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
-        const url = 'http://localhost:8080/contacts/new';
+        const url = `${process.env.REACT_APP_ROUTE}/contacts/new`;
         const options = {
             method: 'POST',
             headers,
@@ -48,7 +48,7 @@ function Contacts() {
     }
 
     useEffect(() => {
-        const url = 'http://localhost:8080/contacts/all';
+        const url = `${process.env.REACT_APP_ROUTE}/contacts/all`;
         const options = {
             mode: 'cors',
             headers
@@ -71,7 +71,7 @@ function Contacts() {
     },);
 
     const deleteContactHandler = (id) => {
-        const url = 'http://localhost:8080/contacts/delete/' + id;
+        const url = `${process.env.REACT_APP_ROUTE}/contacts/delete/` + id;
         const options = {
             method: 'DELETE',
             headers

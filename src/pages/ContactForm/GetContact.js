@@ -1,10 +1,5 @@
 import "./ContactForm.css";
 
-const headers = {
-    // "Content-Type": "application/json",
-    // 'x-auth-tocken': localStorage.getItem('token')
-};
-
 const GetContact = () => {
     function SubmitHandler(e) {
         e.preventDefault();
@@ -20,9 +15,9 @@ const GetContact = () => {
 
         console.log(typeof attachs);
 
-        /* Because we coudnt send all files into array. We need to appeand each file separetly 
+        /* Because we couldn't send all files into an array. We need to append each file separately 
             with  THE SAME KEY.
-            For this we have to use "forin" loop becouse typeof varible is object (forEach working only with array) 
+            For this, we have to use "forin" loop because type of variable is an object (forEach working only with array) 
         */
         if (attachs.length != 0) {
             for (const single_file of attachs) {
@@ -30,7 +25,7 @@ const GetContact = () => {
             }
         }
 
-        const url = "http://localhost:8080/get-contact"; //?
+        const url = `${process.env.REACT_APP_ROUTE}/get-contact`; //?
         const options = {
             method: "POST",
             body: data,
