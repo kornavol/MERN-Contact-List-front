@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/MERN-Contact-List-front/static/css/main.6118d67d.chunk.css",
+    "main.js": "/MERN-Contact-List-front/static/js/main.2880e621.chunk.js",
+    "main.js.map": "/MERN-Contact-List-front/static/js/main.2880e621.chunk.js.map",
+    "runtime-main.js": "/MERN-Contact-List-front/static/js/runtime-main.eeaf1093.js",
+    "runtime-main.js.map": "/MERN-Contact-List-front/static/js/runtime-main.eeaf1093.js.map",
+    "static/js/2.4f20b404.chunk.js": "/MERN-Contact-List-front/static/js/2.4f20b404.chunk.js",
+    "static/js/2.4f20b404.chunk.js.map": "/MERN-Contact-List-front/static/js/2.4f20b404.chunk.js.map",
+    "static/js/3.8c567624.chunk.js": "/MERN-Contact-List-front/static/js/3.8c567624.chunk.js",
+    "static/js/3.8c567624.chunk.js.map": "/MERN-Contact-List-front/static/js/3.8c567624.chunk.js.map",
+    "index.html": "/MERN-Contact-List-front/index.html",
+    "static/css/main.6118d67d.chunk.css.map": "/MERN-Contact-List-front/static/css/main.6118d67d.chunk.css.map",
+    "static/js/2.4f20b404.chunk.js.LICENSE.txt": "/MERN-Contact-List-front/static/js/2.4f20b404.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/MERN-Contact-List-front/static/media/bg.ab3ea406.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eeaf1093.js",
+    "static/js/2.4f20b404.chunk.js",
+    "static/css/main.6118d67d.chunk.css",
+    "static/js/main.2880e621.chunk.js"
+  ]
+}
